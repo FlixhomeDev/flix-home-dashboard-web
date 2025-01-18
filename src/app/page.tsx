@@ -1,5 +1,5 @@
-import SignInRoute from '@/routes/auth/sign-in'
+import SignIn from '@/app/(pages)/auth/page'
 
 export default function App() {
-  return <SignInRoute />
+  return <SignIn />
 }

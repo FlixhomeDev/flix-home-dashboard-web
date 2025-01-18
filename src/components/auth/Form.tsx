@@ -16,6 +16,9 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 
+import { useRouter } from 'next/navigation'
+import { useAuthStore } from '@/store/authStore'
+
 const formSchema = z.object({
   username: z.string().min(4, {
     message: 'Nome de usuário deve ter no minimo 4 caracteres',
@@ -27,6 +30,8 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>
 
 export default function SignInForm() {
+  const { signIn } = useAuthStore()
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,7 +40,15 @@ export default function SignInForm() {
   })
 
   const onSubmit = (data: FormSchema) => {
-    console.log('Form submitted:', data)
+    const fakeToken = 'fake-jwt-token'
+    const fakeName = 'John Doe'
+    const fakeEmail = 'johndoe@example.com'
+
+    // Salva o token e os dados do usuário
+    signIn(fakeToken, fakeName, fakeEmail)
+
+    // Redireciona para o Dashboard
+    router.push('/dashboard')
   }
 
   return (
