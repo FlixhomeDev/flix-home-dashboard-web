@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "workbench.editor.limit.excludeDirty": false,
+  "editor.cursorStyle": "line",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.editor.enablePreview": true,
+  "diffEditor.codeLens": false,
+  "diffEditor.experimental.showMoves": false,
+  "editor.minimap.autohide": true,
+  "editor.minimap.showMarkSectionHeaders": true,
+  "editor.minimap.showRegionSectionHeaders": true
+}
