@@ -2,7 +2,7 @@
 
 export default function Communication() {
   return (
-    <div className="">
+    <div className="p-9">
       <h1>Communication</h1>
     </div>
   )

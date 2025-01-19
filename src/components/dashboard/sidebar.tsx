@@ -7,6 +7,12 @@ import UsersSVG from '@/assets/svgs/sidebar/users'
 import ServicesSVG from '@/assets/svgs/sidebar/services'
 import DashboardSVG from '@/assets/svgs/sidebar/dashboard'
 import { useRouter } from 'next/navigation'
+import PieChart from '@/assets/svgs/sidebar/pie-chart'
+import WalletSvg from '@/assets/svgs/sidebar/walletSvg'
+import CommunicationSvg from '@/assets/svgs/sidebar/communication'
+import LightSvg from '@/assets/svgs/sidebar/light'
+import SupportSvg from '@/assets/svgs/sidebar/support'
+import SettingsSvg from '@/assets/svgs/sidebar/settings'
 
 export default function Sidebar() {
   const router = useRouter()
@@ -53,7 +59,7 @@ export default function Sidebar() {
             variant={'ghost'}
             onClick={() => router.push('/financy')}
           >
-            <ServicesSVG color="#000" />
+            <PieChart color="#000" />
             Finanças
           </Button>
           <Button
@@ -61,7 +67,7 @@ export default function Sidebar() {
             variant={'ghost'}
             onClick={() => router.push('/wallet')}
           >
-            <ServicesSVG color="#000" />
+            <WalletSvg color="#000" />
             Agenda
           </Button>
           <Button
@@ -69,7 +75,7 @@ export default function Sidebar() {
             variant={'ghost'}
             onClick={() => router.push('/communication')}
           >
-            <ServicesSVG color="#000" />
+            <CommunicationSvg color="#000" />
             Comunicação
           </Button>
         </nav>
@@ -79,7 +85,7 @@ export default function Sidebar() {
             className="w-full flex justify-start gap-x-3 font-medium"
             variant={'ghost'}
           >
-            <ServicesSVG color="#000" />
+            <LightSvg color="#000" />
             Mudar tema
           </Button>
           <div className="w-full mx-auto border" />
@@ -87,14 +93,14 @@ export default function Sidebar() {
             className="w-full flex justify-start gap-x-3 font-medium"
             variant={'ghost'}
           >
-            <ServicesSVG color="#000" />
+            <SupportSvg color="#000" />
             Support
           </Button>
           <Button
             className="w-full flex justify-start gap-x-3 font-medium"
             variant={'ghost'}
           >
-            <ServicesSVG color="#000" />
+            <SettingsSvg color="#000" />
             Definições
           </Button>
         </div>

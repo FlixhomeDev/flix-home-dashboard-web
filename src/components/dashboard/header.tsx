@@ -1,7 +1,8 @@
 import { Button } from '../ui/button'
-import { Input } from '../ui/input'
 import BellSvg from '@/assets/svgs/bell'
-import { ChevronDown, User2 } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import SearchInput from '../search-input'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function Header() {
   return (
@@ -12,19 +13,22 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-x-4">
-        <Input
-          type="search"
-          placeholder="Pesquisar..."
-          className="max-w-[263px] w-full"
-        />
+        <SearchInput />
 
         <Button variant={'ghost'}>
           <BellSvg />
         </Button>
 
         <div className="flex justify-center items-center  w-[284px] gap-x-2">
-          <div className="w-[50px] h-[50px] rounded-lg bg-blue-400 flex justify-center items-center">
-            <User2 color="#fff" />
+          <div className="w-[50px] h-[50px] rounded-lg bg-blue-100 flex justify-center items-center overflow-hidden">
+            <Avatar>
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                width={22}
+                height={22}
+              />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
           </div>
           <div className="flex flex-col">
             <h4 className="text-sm font-bold">Crisvan Van</h4>
