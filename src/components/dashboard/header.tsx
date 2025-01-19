@@ -1,10 +1,14 @@
+'use client'
 import { Button } from '../ui/button'
 import BellSvg from '@/assets/svgs/bell'
 import { ChevronDown } from 'lucide-react'
 import SearchInput from '../search-input'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { useParams } from 'next/navigation'
 
 export default function Header() {
+  const { data } = useParams<{ data: string }>()
+  console.log(data)
   return (
     <header className="flex justify-between items-center px-6 py-6 h-[89px] border-b border-[slate-400]">
       <div className="">

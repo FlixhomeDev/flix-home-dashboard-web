@@ -40,6 +40,7 @@ export default function SignInForm() {
   })
 
   const onSubmit = (data: FormSchema) => {
+    console.log(data)
     const fakeToken = 'fake-jwt-token'
     const fakeName = 'John Doe'
     const fakeEmail = 'johndoe@example.com'

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 import { FullLogo } from '@/assets/images'
@@ -14,8 +14,20 @@ import LightSvg from '@/assets/svgs/sidebar/light'
 import SupportSvg from '@/assets/svgs/sidebar/support'
 import SettingsSvg from '@/assets/svgs/sidebar/settings'
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+
 export default function Sidebar() {
   const router = useRouter()
+
+  const [menuItem, setMenuItem] = useState<
+    'dashboard' | 'services' | 'users' | 'financy' | 'wallet' | 'communication'
+  >('dashboard')
+
   return (
     <div className="border-r border-[slate-400] flex flex-col">
       <div className="px-16 py-7 border-b border-[slate-400] h-[89px]">
@@ -31,29 +43,68 @@ export default function Sidebar() {
       <div className="px-4 py-6 mt-7 flex flex-col flex-1 justify-between">
         <nav className="flex flex-col">
           <Button
-            className="w-full bg-blue-600 text-white flex justify-start gap-x-3 font-medium"
+            className={`w-full flex justify-start gap-x-3 font-medium ${menuItem === 'dashboard' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
-            onClick={() => router.push('/dashboard')}
+            onClick={() => {
+              setMenuItem('dashboard')
+              router.push('/dashboard', { data: 'Dashboard' })
+            }}
           >
-            <DashboardSVG color="#fff" />
+            <DashboardSVG color={menuItem === 'dashboard' ? '#fff' : '#000'} />
             Dashboard
           </Button>
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className={`w-full flex justify-start gap-x-3 font-medium ${menuItem === 'services' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
-            onClick={() => router.push('/services')}
+            onClick={() => {
+              setMenuItem('services')
+              router.push('/services')
+            }}
           >
-            <ServicesSVG color="#000" />
+            <ServicesSVG color={menuItem === 'services' ? '#fff' : '#000'} />
             Serviços
           </Button>
-          <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
-            variant={'ghost'}
-            onClick={() => router.push('/users')}
+
+          <Accordion
+            type="single"
+            collapsible
+            className={`w-full flex justify-start gap-x-3 font-medium py-2 px-4 rounded-md  ${menuItem === 'users' && 'bg-blue-600 text-white'}`}
           >
-            <UsersSVG color="#000" />
-            Usuários
-          </Button>
+            <AccordionItem value="item-1" className="w-full">
+              <AccordionTrigger
+                className="w-full"
+                onClick={() => {
+                  setMenuItem('users')
+                  router.push('/users')
+                }}
+              >
+                <div className="flex items-center gap-x-2 w-full">
+                  <UsersSVG color={menuItem === 'users' ? '#fff' : '#000'} />
+                  <span
+                    className={`${menuItem === 'users' ? 'text-white' : 'text-black'}`}
+                  >
+                    Usuários
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="gap-y-2">
+                <Button
+                  className={`w-full flex mt-2 justify-start gap-x-3 font-medium  ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
+                  variant={'ghost'}
+                  onClick={() => router.push('/users')}
+                >
+                  Clientes
+                </Button>
+                <Button
+                  className={`w-full flex mt-2 justify-start gap-x-3 font-medium ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
+                  variant={'ghost'}
+                  onClick={() => router.push('/users')}
+                >
+                  Prestadores
+                </Button>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
           <Button
             className="w-full flex justify-start gap-x-3 font-medium"
             variant={'ghost'}
