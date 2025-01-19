@@ -45,7 +45,7 @@ const formSchema = z.object({
 })
 type FormSchema = z.infer<typeof formSchema>
 
-export default function CreateClientModal() {
+export default function CreateProviderModal() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -61,14 +61,14 @@ export default function CreateClientModal() {
     <Dialog>
       <DialogTrigger asChild>
         <Button className="bg-blue-600">
-          Adicionar Usuário
+          Adicionar prestador
           <PlusIcon color="#fff" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[723px] p-16 sm:rounded-[30px]">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-slate-700 text-center">
-            Adicionar um novo Cliente
+            Adicionar um novo prestador
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-600 max-w-[420px] mx-auto">
             It is a long established fact that a reader will be distracted by
@@ -87,7 +87,7 @@ export default function CreateClientModal() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-zinc-400">
-                        Nome de usuário
+                        Nome do Prestador
                       </FormLabel>
                       <FormControl>
                         <Input

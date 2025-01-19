@@ -2,18 +2,16 @@ import { ClockIcon, EllipsisIcon, MapPinIcon } from 'lucide-react'
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 
-export default function Card() {
+export default function CardProvider() {
   return (
     <div className="bg-zinc-100/60 border border-zinc-300/40 rounded-md p-3">
       <div className="w-full flex justify-between items-center">
-        <span className="bg-zinc-400/20 p-2 rounded-lg text-xs tracking-wider">
-          Agendado em: <span className="font-bold">Jan 13 2025</span>
+        <span className="bg-zinc-400/15 p-2 rounded-lg text-xs tracking-wider">
+          3 agendamentos em: <span className="font-bold">Jan 13 2025</span>
         </span>
-        <EllipsisIcon />
+        <EllipsisIcon color="#A3A3A3" />
       </div>
-      <h3 className="text-xl mt-2 font-bold text-zinc-800 tracking-wider">
-        Limpeza Geral
-      </h3>
+      <h3 className="text-xl mt-2 font-bold text-zinc-800">Limpeza Geral</h3>
       <div className="flex justify-start items-center mt-2 w-[284px] gap-x-2">
         <div className=" rounded-lg flex justify-center items-center overflow-hidden">
           <Avatar>
@@ -30,7 +28,7 @@ export default function Card() {
             Santos Van-dúnem
           </h4>
           <span className="text-xs font-light text-zinc-400 tracking-wider">
-            Cliente
+            Prestador
           </span>
         </div>
       </div>
@@ -40,7 +38,7 @@ export default function Card() {
           <span className="bg-[#D2FDE6] p-2 px-4 rounded-lg tracking-wider font-semibold text-xs text-green-500 mr-2">
             Concluído
           </span>
-          <span className="bg-zinc-400/20 p-2 rounded-lg tracking-wider text-xs flex items-center gap-x-1">
+          <span className="bg-zinc-400/15 p-2 rounded-lg tracking-wider text-xs flex items-center gap-x-1">
             <MapPinIcon size={14} />
             Lisboa - Rua 03 - casa 123
           </span>

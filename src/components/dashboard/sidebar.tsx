@@ -43,18 +43,18 @@ export default function Sidebar() {
       <div className="px-4 py-6 mt-7 flex flex-col flex-1 justify-between">
         <nav className="flex flex-col">
           <Button
-            className={`w-full flex justify-start gap-x-3 font-medium ${menuItem === 'dashboard' && 'bg-blue-600 text-white'}`}
+            className={`w-full flex justify-start gap-x-3 text-sm font-semibold tracking-wider ${menuItem === 'dashboard' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
             onClick={() => {
               setMenuItem('dashboard')
-              router.push('/dashboard', { data: 'Dashboard' })
+              router.push('/dashboard')
             }}
           >
             <DashboardSVG color={menuItem === 'dashboard' ? '#fff' : '#000'} />
             Dashboard
           </Button>
           <Button
-            className={`w-full flex justify-start gap-x-3 font-medium ${menuItem === 'services' && 'bg-blue-600 text-white'}`}
+            className={`w-full flex justify-start gap-x-3 text-sm font-semibold tracking-wider ${menuItem === 'services' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
             onClick={() => {
               setMenuItem('services')
@@ -68,20 +68,19 @@ export default function Sidebar() {
           <Accordion
             type="single"
             collapsible
-            className={`w-full flex justify-start gap-x-3 font-medium py-2 px-4 rounded-md  ${menuItem === 'users' && 'bg-blue-600 text-white'}`}
+            className={`w-full flex justify-start gap-x-3 font-semibold text-sm py-2 px-4 rounded-md  ${menuItem === 'users' && 'bg-blue-600 text-white'}`}
           >
             <AccordionItem value="item-1" className="w-full">
               <AccordionTrigger
                 className="w-full"
                 onClick={() => {
                   setMenuItem('users')
-                  router.push('/users')
                 }}
               >
                 <div className="flex items-center gap-x-2 w-full">
                   <UsersSVG color={menuItem === 'users' ? '#fff' : '#000'} />
                   <span
-                    className={`${menuItem === 'users' ? 'text-white' : 'text-black'}`}
+                    className={`tracking-wider font-semibold text-sm ${menuItem === 'users' ? 'text-white' : 'text-black'}`}
                   >
                     Usuários
                   </span>
@@ -89,16 +88,16 @@ export default function Sidebar() {
               </AccordionTrigger>
               <AccordionContent className="gap-y-2">
                 <Button
-                  className={`w-full flex mt-2 justify-start gap-x-3 font-medium  ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
+                  className={`w-full flex mt-2 justify-start text-sm font-semibold gap-x-3 tracking-wider ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
                   variant={'ghost'}
-                  onClick={() => router.push('/users')}
+                  onClick={() => router.push('/users/clients')}
                 >
                   Clientes
                 </Button>
                 <Button
-                  className={`w-full flex mt-2 justify-start gap-x-3 font-medium ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
+                  className={`w-full flex mt-2 justify-start gap-x-3 text-sm font-semibold tracking-wider ${menuItem === 'users' && 'bg-blue-700 text-white'}`}
                   variant={'ghost'}
-                  onClick={() => router.push('/users')}
+                  onClick={() => router.push('/users/providers')}
                 >
                   Prestadores
                 </Button>
@@ -106,34 +105,45 @@ export default function Sidebar() {
             </AccordionItem>
           </Accordion>
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className={`w-full flex justify-start gap-x-3 font-semibold text-sm py-2 px-4 rounded-md  ${menuItem === 'financy' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
-            onClick={() => router.push('/financy')}
+            onClick={() => {
+              setMenuItem('financy')
+              router.push('/financy')
+            }}
           >
-            <PieChart color="#000" />
+            <PieChart color={menuItem === 'financy' ? '#fff' : '#000'} />
             Finanças
           </Button>
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className={`w-full flex justify-start gap-x-3 font-semibold text-sm py-2 px-4 rounded-md  ${menuItem === 'wallet' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
-            onClick={() => router.push('/wallet')}
+            onClick={() => {
+              setMenuItem('wallet')
+              router.push('/wallet')
+            }}
           >
-            <WalletSvg color="#000" />
+            <WalletSvg color={menuItem === 'wallet' ? '#fff' : '#000'} />
             Agenda
           </Button>
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className={`w-full flex justify-start gap-x-3 font-semibold text-sm py-2 px-4 rounded-md  ${menuItem === 'communication' && 'bg-blue-600 text-white'}`}
             variant={'ghost'}
-            onClick={() => router.push('/communication')}
+            onClick={() => {
+              setMenuItem('communication')
+              router.push('/communication')
+            }}
           >
-            <CommunicationSvg color="#000" />
+            <CommunicationSvg
+              color={menuItem === 'communication' ? '#fff' : '#000'}
+            />
             Comunicação
           </Button>
         </nav>
 
         <div className="bottom-auto">
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className="w-full flex justify-start gap-x-3 font-semibold text-sm tracking-wider"
             variant={'ghost'}
           >
             <LightSvg color="#000" />
@@ -141,14 +151,14 @@ export default function Sidebar() {
           </Button>
           <div className="w-full mx-auto border" />
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className="w-full flex justify-start gap-x-3 font-semibold text-sm tracking-wider"
             variant={'ghost'}
           >
             <SupportSvg color="#000" />
             Support
           </Button>
           <Button
-            className="w-full flex justify-start gap-x-3 font-medium"
+            className="w-full flex justify-start gap-x-3 font-semibold text-sm tracking-wider"
             variant={'ghost'}
           >
             <SettingsSvg color="#000" />

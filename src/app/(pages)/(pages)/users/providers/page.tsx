@@ -4,11 +4,11 @@ import { Combobox } from '@/components/Combobox'
 import SearchInput from '@/components/search-input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useState } from 'react'
-import TableInfoGeral from '@/components/dashboard/table-info-geral-users'
-import HistoryServices from '@/components/dashboard/history-services-users'
-import CreateClientModal from '@/components/dashboard/create-client-modal'
+import TableInfoGeralProviders from '@/components/dashboard/table-info-geral-providers'
+import CreateProviderModal from '@/components/dashboard/create-provider-modal'
+import HistoryServicesProvider from '@/components/dashboard/history-services-provider'
 
-export default function Users() {
+export default function Providers() {
   const [toggle, setToggle] = useState<'info' | 'history'>('info')
 
   return (
@@ -18,7 +18,7 @@ export default function Users() {
           <SearchInput />
           <Combobox />
         </div>
-        <CreateClientModal />
+        <CreateProviderModal />
       </div>
 
       <div className="mt-7">
@@ -36,14 +36,14 @@ export default function Users() {
               onClick={() => setToggle('history')}
               className={`border-b bg-transparent rounded-none h-full ${toggle === 'history' && 'border-blue-600'}`}
             >
-              Histórico de serviços
+              Relatório de Atividades
             </TabsTrigger>
           </TabsList>
           <TabsContent value="info">
-            <TableInfoGeral />
+            <TableInfoGeralProviders />
           </TabsContent>
           <TabsContent value="history">
-            <HistoryServices />
+            <HistoryServicesProvider />
           </TabsContent>
         </Tabs>
       </div>

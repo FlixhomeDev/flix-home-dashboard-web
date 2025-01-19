@@ -16,11 +16,17 @@ export default function TableInfoGeral() {
       <TableCaption>Lista das suas recentes informações gerais</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="text-left text-zinc-400">NOME</TableHead>
-          <TableHead className="text-zinc-400">LOCALIZAÇÃO</TableHead>
-          <TableHead className="text-zinc-400">DATA</TableHead>
-          <TableHead className="text-right text-zinc-400">STATUS</TableHead>
-          <TableHead className="text-right text-zinc-400">ACÇÕES</TableHead>
+          <TableHead className="text-left text-zinc-400 uppercase">
+            NOME
+          </TableHead>
+          <TableHead className="text-zinc-400 uppercase">SERVIÇOS</TableHead>
+          <TableHead className="text-zinc-400 uppercase">DATA</TableHead>
+          <TableHead className="text-right text-zinc-400 uppercase">
+            STATUS
+          </TableHead>
+          <TableHead className="text-right text-zinc-400 uppercase">
+            ACÇÕES
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
